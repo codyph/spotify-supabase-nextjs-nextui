@@ -16,17 +16,19 @@ const CustomNavbarDropdown = ({ avatarUrl }: { avatarUrl: string }) => {
 
   const handleSignOut = async () => {
     await supabase.auth.signOut()
-    // const doRefresh = () => { router.refresh() }
-    // setTimeout(doRefresh, 1000)
     setTimeout(router.refresh, 300)
   }
-
-
 
   return (
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
-        <Avatar isBordered as="button" name="profileImage" className="transition-transform" src={avatarUrl}/>
+        <Avatar
+          isBordered
+          as="button"
+          name="profileImage"
+          className="transition-transform"
+          src={avatarUrl}
+        />
       </DropdownTrigger>
       <DropdownMenu aria-label="Profile Actions" variant="flat">
         <DropdownItem key="myProfile">My Profile</DropdownItem>

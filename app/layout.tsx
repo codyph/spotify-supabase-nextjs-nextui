@@ -4,7 +4,7 @@ import NUIProvider from "@/providers/NUIProvider"
 import type { Metadata } from "next"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
-import CustomNavbar from "@/components/CustomNavbar"
+import CustomNavbar from "@/components/NavbarComps/CustomNavbar"
 
 const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {

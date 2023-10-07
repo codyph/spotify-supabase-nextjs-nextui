@@ -1,20 +1,20 @@
-import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/navbar";
-import { Input } from "@nextui-org/input";
-import { Session, User } from "@supabase/supabase-js";
-import { SearchIcon } from "@/public/SearchIcon";
-import CustomNavbarDropdown from "./NavbarComps/CustomNavbarDropdown";
-import { CardylLogo } from "@/public/CardylLogo";
+import { Navbar, NavbarBrand, NavbarContent } from "@nextui-org/navbar"
+import { Input } from "@nextui-org/input"
+import { Session, User } from "@supabase/supabase-js"
+import { SearchIcon } from "@/public/SearchIcon"
+import { CardylLogo } from "@/public/CardylLogo"
+import CustomNavbarDropdown from "./CustomNavbarDropdown"
 
 const CustomNavbar = ({
   session,
   user,
 }: {
-  session: Session | null;
-  user: User | null;
+  session: Session | null
+  user: User | null
 }) => {
   // Get rid of Navbar if session doesn't exist
   if (!session) {
-    return;
+    return
   }
 
   return (
@@ -39,7 +39,7 @@ const CustomNavbar = ({
         <CustomNavbarDropdown avatarUrl={user?.user_metadata.avatar_url} />
       </NavbarContent>
     </Navbar>
-  );
-};
+  )
+}
 
-export default CustomNavbar;
+export default CustomNavbar
