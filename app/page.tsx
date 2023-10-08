@@ -1,8 +1,7 @@
+import Content from "@/components/Content"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
-import AuthButtonServer from "@/components/AuthButton-Server"
 import { redirect } from "next/navigation"
-import DataLoader from "@/components/DataLoader"
 
 const Home = async () => {
   const supabase = createServerComponentClient({ cookies })
@@ -15,8 +14,12 @@ const Home = async () => {
   }
 
   return (
-    <div className="flex flex-col p-10">
-      <p className="text-center">Home Page</p>
+    <div>
+      <div className="m-auto flex max-w-5xl flex-col">
+        <div className="p-4">
+          <Content session={session} />
+        </div>
+      </div>
     </div>
   )
 }
