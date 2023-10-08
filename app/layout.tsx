@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   title: "Cardyl",
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function RootLayout({
   children,
 }: {
@@ -19,9 +21,10 @@ export default async function RootLayout({
 }) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  // const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
+  // const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
   // @ts-ignore
-  const supabase = createClient(supabaseUrl, supabaseKey)
+  // const supabase = createClient(supabaseUrl, supabaseKey)
 
   const {
     data: { session },
