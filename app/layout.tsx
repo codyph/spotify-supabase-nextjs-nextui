@@ -5,26 +5,20 @@ import type { Metadata } from "next"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import CustomNavbar from "@/components/NavbarComps/CustomNavbar"
-import { createClient } from "@supabase/supabase-js"
 
 const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Cardyl",
 }
 
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic"
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  // const supabase = createServerComponentClient({ cookies })
-  const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
-  // @ts-ignore
-  // const supabase = createClient(supabaseUrl, supabaseKey)
+  const supabase = createServerComponentClient({ cookies })
 
   const {
     data: { session },
@@ -38,7 +32,7 @@ export default async function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <NUIProvider>
-          <div className="relative h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-500 via-emerald-900 to-black brightness-100 overflow-scroll">
+          <div className="relative h-screen overflow-scroll bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-500 via-emerald-900 to-black brightness-100">
             <CustomNavbar session={session} user={user} />
             {children}
           </div>
