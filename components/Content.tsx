@@ -21,7 +21,19 @@ const Content = async ({ session }: { session: Session }) => {
   }).then((res) => res.json())
 
   return (
-    <div className="">
+    <div className="px-6">
+      <AlbumRow
+        rowTitle="Your Favourite Albums"
+        rowContent={userSavedAlbums.items}
+      />
+      <AlbumRow
+        rowTitle="Your Favourite Albums"
+        rowContent={userSavedAlbums.items}
+      />
+      <AlbumRow
+        rowTitle="Your Favourite Albums"
+        rowContent={userSavedAlbums.items}
+      />
       <AlbumRow
         rowTitle="Your Favourite Albums"
         rowContent={userSavedAlbums.items}

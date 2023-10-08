@@ -5,7 +5,9 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
 const Login = async () => {
-  const supabase = createServerComponentClient({ cookies })
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
   const {
     data: { session },
   } = await supabase.auth.getSession()

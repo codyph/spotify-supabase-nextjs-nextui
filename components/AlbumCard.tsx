@@ -4,19 +4,18 @@ import { Image } from "@nextui-org/image"
 const AlbumCard = ({ albumContent }: { albumContent: Object[] }) => {
   return (
     <div>
-      <Card shadow="sm" radius="sm" isPressable className="bg-[#303030]">
-        <CardBody className="relative h-36 w-36 justify-center overflow-visible p-3">
+      <Card shadow="none" radius="sm" isPressable className="bg-transparent hover:bg-[#ffffff] hover:bg-opacity-10">
+        <CardBody className="relative h-44 w-44 justify-center overflow-visible p-3">
           <Image
             // @ts-ignore
             src={albumContent.images[0].url}
-            shadow="sm"
             radius="none"
             width="100%"
             height="144px"
             className="object-cover"
           />
         </CardBody>
-        <CardFooter className="flex flex-col justify-center bg-[#3f3f3f]">
+        <CardFooter className="flex flex-col justify-center p-0 pb-4">
           <div className="text-white">
             {/* @ts-ignore */}
             <p className="text-center text-sm font-bold">{albumContent.name}</p>

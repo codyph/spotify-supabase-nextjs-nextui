@@ -18,7 +18,7 @@ const CustomNavbar = ({
   }
 
   return (
-    <Navbar isBordered position="sticky">
+    <Navbar isBordered position="sticky" isBlurred>
       <NavbarContent justify="start">
         <NavbarBrand>
           <CardylLogo width={36} />

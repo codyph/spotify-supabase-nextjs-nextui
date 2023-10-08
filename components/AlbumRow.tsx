@@ -9,12 +9,12 @@ type AlbumRowProps = {
 const AlbumRow = ({ rowTitle, rowContent }: AlbumRowProps) => {
   return (
     <div className="">
-      <h1 className="pb-4 text-2xl">{rowTitle}</h1>
+      <h1 className="py-4 text-2xl">{rowTitle}</h1>
       <ScrollShadow
         orientation="horizontal"
         hideScrollBar
         size={25}
-        className="flex flex-row gap-x-8"
+        className="flex flex-row pl-2 pb-4"
       >
         {/* <div className="no-scrollbar flex flex-row gap-x-8 overflow-x-scroll"> */}
         {rowContent.map((albumContent, i) => {

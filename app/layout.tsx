@@ -16,7 +16,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const supabase = createServerComponentClient({ cookies })
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
 
   const {
     data: { session },
@@ -30,8 +32,7 @@ export default async function RootLayout({
     <html lang="en" className="dark">
       <body className={inter.className}>
         <NUIProvider>
-          <div className="relative h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-500 via-emerald-900 to-black brightness-75">
-            <div className="absolute inset-0 bg-[url(https://grainy-gradients.vercel.app/noise.svg)] opacity-25 brightness-100 contrast-150"></div>
+          <div className="relative h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-500 via-emerald-900 to-black brightness-100 overflow-scroll">
             <CustomNavbar session={session} user={user} />
             {children}
           </div>

@@ -4,7 +4,9 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
 const Home = async () => {
-  const supabase = createServerComponentClient({ cookies })
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
   const {
     data: { session },
   } = await supabase.auth.getSession()
@@ -16,7 +18,7 @@ const Home = async () => {
   return (
     <div>
       <div className="m-auto flex max-w-5xl flex-col">
-        <div className="p-4">
+        <div className="">
           <Content session={session} />
         </div>
       </div>
