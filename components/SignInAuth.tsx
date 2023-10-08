@@ -12,7 +12,7 @@ const SignInAuth = () => {
     await supabase.auth.signInWithOAuth({
       provider: "spotify",
       options: {
-        redirectTo: "http://localhost:3000/auth/callback",
+        redirectTo: "https://cardyl.vercel.app/auth/callback",
         scopes: scopes.join(" "),
       },
     })
