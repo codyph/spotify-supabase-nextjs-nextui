@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers"
 import CustomNavbar from "@/components/NavbarComps/CustomNavbar"
+import { createClient } from "@supabase/supabase-js"
 
 const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default async function RootLayout({
 }) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
+  // const supabase = createServerComponentClient({ cookies }, {supabaseUrl, supabaseKey})
+  // @ts-ignore
+  const supabase = createClient(supabaseUrl, supabaseKey)
 
   const {
     data: { session },
